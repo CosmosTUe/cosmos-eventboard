@@ -213,7 +213,16 @@ body {
 				$counter = 0;
 				
 				
-				foreach ($events["events"]["data"] as $event){ 			
+				foreach ($events["events"]["data"] as $event){
+					// ?fields=images
+					#Retrieve higher resolution images
+					$images_query = $event["cover"]["id"] . "?fields=images&access_token=";
+					$images_url = $base . $version . $images_query . $access_token;
+					$raw_images = file_get_contents($images_url);
+					$images = json_decode($raw_images, true);
+					$event['cover']['source'] = $images["images"][0]["source"];
+
+
 					array_push($eventTrack,$event);
                 } 
 				
