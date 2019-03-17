@@ -16,3 +16,50 @@
 	border-radius: 25px;
 	padding:50px;
 }
+
+tr {
+    height:100%;
+    width:100%;
+}
+td {    
+    height:600px;
+    text-align:center;  
+    background-color:black;
+    border-radius:0px;
+}
+#two_e {
+    height:200px;
+    text-align:center;  
+    background-color:black;
+    border-radius:0px;
+}
+body {
+    height: 100vh;
+    background-image: url("https://cosmostue.nl/static/assets/img/background.jpg");
+}
+#main {
+    height:475px;
+    width:825px;
+}
+#main_one {
+    height:550px;
+    width:900px;
+}
+#secondary {
+    width:500px;
+    height:300px;
+}
+#third {
+    width:500px;
+    height:300px;
+}
+div {
+    width:250px;
+    height:250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider .slides {
+    background-color: transparent; !important
+}
