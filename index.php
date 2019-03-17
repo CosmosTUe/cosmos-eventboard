@@ -36,36 +36,36 @@
                     // It breaks with the new update. TODO: Find higher resolution cover
                     // $html .=  '<img src="' . $event['photos']['data'][0]['images'][0]['source'] . '">';
 					$html .= "<table>";
-						$html .= '<tr>';
-							$html .= '<td style="width:30%;background-color:#330000;border-bottom:4px solid black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><i><u>' . $secondary['name'] . '</u></i></h4>';
+                        $html .= "<tr>";
+
+                            $html .= '<td  colspan="2" class="event_info_column_big">';
+                            $html .=  '<h2 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h2>';
+                            $html .=  '<h5 class="light grey-text text-lighten-3"><b>' . date('d-m-Y H:i', strtotime($main['start_time'])) . '</b></h5>';
+                            $html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
+                            $html .= "</td>";
+
+							$html .= '<td class="next_event_column">';
+								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $secondary['name'] . '</b></h4>';
 								$html .=  '<img id="secondary" src="' . $secondary['cover']['source'] . '" >';
 							$html .= "</td>";
-							
-							$html .= '<td style="background-color:black;width:50%">';						
-								$html .=  '<h2 class="light grey-text text-lighten-3"><i><u>' . $main['name'] . '</u></i></h2>';
+						$html .= "</tr>";
 
-								$html .=  '<h5 class="light grey-text text-lighten-3"><i><u>' . date('d-m-Y H:i', strtotime($main['start_time'])) . '</u></i></h5>';
+                        $html .= '<tr>';
+                            $html .= '<td class="qr_code_column">';
+                            $html .= "<div>";
+                            $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
+                            $html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
+                            $html .= "</div>";
+                            $html .= "</td>";
 
-								$html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
-							$html .= '<td style="background-color:black;width:300px">';
-								$html .= "<div>";
-								$html .=  '<h5 class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
-								$html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
-								$html .= "</div>";
-							$html .= "</td>";
-						$html .= "</tr>";	
-						$html .= "<tr>";			
-							$html .= '<td style="background-color:#330000">';									
-								$html .=  '<h3 class="light grey-text text-lighten-3"><i><u>' . $third['name'] . '</u></i></h4>';
+                            $html .= '<td class="event_info_column">';
+                            $html .=  '<img id="main" src="' . $main['cover']['source'] . '" >';
+                            $html .= "</td>";
+
+							$html .= '<td class="next_event_column">';
+								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $third['name'] . '</b></h4>';
 								$html .=  '<img id="third" src="' . $third['cover']['source'] . '" >';
-							$html .= "</td>";				
-								$html .= '<td>';
-									$html .=  '<img id="main" src="' . $main['cover']['source'] . '" >';					
-							    $html .= "</td>";
-								
-								$html .= '<td style="background-color:black;width:30%">';
-								$html .= "</td>";
+							$html .= "</td>";
 						$html .= "</tr>";	
                     $html .= "</table>";
 					$html .= "</li>";
@@ -78,11 +78,11 @@
 					$html .= "<table>";
 						$html .= '<tr>';
 							$html .= '<td style="width:50%;background-color:black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><i><u>' . $main['name'] . '</u></i></h3>';
+								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h3>';
 								$html .=  '<img id="main" src="' . $main['cover']['source'] . '" >';					
 							$html .= "</td>";				
 							$html .= '<td style="width:50%;background-color:black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><i><u>' . $secondary['name'] . '</u></i></h3>';
+								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $secondary['name'] . '</b></h3>';
 								$html .=  '<img id="main" src="' . $secondary['cover']['source'] . '" >';			
 							$html .= "</td>";		
 						$html .= "</tr>";
@@ -120,7 +120,7 @@
 					$html .= "<table>";
 						$html .= '<tr>';
 							$html .= '<td style="width:50%;background-color:black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><i><u>' . $main['name'] . '</u></i></h3>';
+								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h3>';
 								$html .=  '<img id="main_one" src="' . $main['cover']['source'] . '" >';					
 							$html .= "</td>";					
 						$html .= "</tr>";
@@ -136,7 +136,7 @@
 									$html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
 									$html .= "</div>";
 							    $html .= "</td>";
-						$html .= "</tr>";		
+						$html .= "</tr>";
                     $html .= "</table>";
 					$html .= "</li>";		
                     return $html;
@@ -179,7 +179,7 @@
 					array_push($eventTrack,$event);
                 } 
 				
-                //$eventCount = 0;
+//                $eventCount = 1;
 
 				if($eventCount==0){
 					$html_out .= build_zero_slide();
