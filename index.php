@@ -8,54 +8,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="js/materialize.js"></script>  
 		
-<style>
 
-tr {
-	height:100%;
-	width:100%;
-}
-td {	
-	height:600px;
-    text-align:center;	
-	background-color:black;
-	border-radius:0px;
-}
-#two_e {
-	height:200px;
-    text-align:center;	
-	background-color:black;
-	border-radius:0px;
-}
-li {
-	background-image: url("https://cosmostue.nl/static/assets/img/background.jpg");
-}
-#main {
-	height:475px;
-	width:825px;
-}
-#main_one {
-	height:550px;
-	width:900px;
-}
-#secondary {
-	width:500px;
-	height:300px;
-}
-#third {
-	width:500px;
-	height:300px;
-}
-div {
-	width:250px;
-	height:250px;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-body {
-	
-}
-</style>
     </head>
     <!-- End Page Header -->
 
@@ -91,6 +44,9 @@ body {
 							
 							$html .= '<td style="background-color:black;width:50%">';						
 								$html .=  '<h2 class="light grey-text text-lighten-3"><i><u>' . $main['name'] . '</u></i></h2>';
+
+								$html .=  '<h5 class="light grey-text text-lighten-3"><i><u>' . date('d-m-Y H:i', strtotime($main['start_time'])) . '</u></i></h5>';
+
 								$html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
 							$html .= '<td style="background-color:black;width:300px">';
 								$html .= "<div>";
@@ -187,8 +143,7 @@ body {
                 }
 				function build_zero_slide(){
                     $html = "";
-					$html .= "<li>";
-					$html .= "</li>";		
+                    $html = "<div style='text-align:center; width:100%; margin-top:35vh'><p style='width:50%; margin:0 auto; font-size:24px;'>It looks like no upcoming events where found... Might as well turn off the monitor so people don't see this ugly message :) </p></div>";	
                     return $html;
                 }
 				function get_number_of_events($events) {
@@ -214,7 +169,6 @@ body {
 				
 				
 				foreach ($events["events"]["data"] as $event){
-					// ?fields=images
 					#Retrieve higher resolution images
 					$images_query = $event["cover"]["id"] . "?fields=images&access_token=";
 					$images_url = $base . $version . $images_query . $access_token;
@@ -222,10 +176,11 @@ body {
 					$images = json_decode($raw_images, true);
 					$event['cover']['source'] = $images["images"][0]["source"];
 
-
 					array_push($eventTrack,$event);
                 } 
 				
+                //$eventCount = 0;
+
 				if($eventCount==0){
 					$html_out .= build_zero_slide();
 				} else if($eventCount==1) {
@@ -255,8 +210,7 @@ body {
 				
             </ul>
         </div>
-        <div class="progress">
-         <div class="determinate" style="width: 0%"></div>
+        <div class="progress"> <div class="determinate" style="width: 0%"></div>
      </div>
 
         <!-- Initalize slider plugin -->
