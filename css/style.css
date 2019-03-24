@@ -1,7 +1,7 @@
 .progress {
 
     height: 20px;
-    z-index: 999;
+    z-index: 5;
     position: absolute;
     bottom: 0;
     background-color: rgba(255,255,255,0.7);
@@ -75,4 +75,10 @@ body {
 }
 .slider .slides {
     background-color: transparent; !important
+}
+.no-top-border{
+    border-top: none;
+}
+.push-to-front {
+    z-index: -50;
 }

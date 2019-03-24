@@ -44,7 +44,7 @@
                             $html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
                             $html .= "</td>";
 
-							$html .= '<td class="next_event_column">';
+							$html .= '<td class="next_event_column no-top-border">';
 								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $secondary['name'] . '</b></h4>';
 								$html .=  '<img id="secondary" src="' . $secondary['cover']['source'] . '" >';
 							$html .= "</td>";
@@ -73,72 +73,79 @@
                 }
 				function build_two_slide($main,$secondary){
                     $html = "";
-					$html .= "<li>";
+                    $html .= "<li>";
+                    //tries to get an url and convert it to an image
+                    $content = file_get_contents('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8');
+                    // It breaks with the new update. TODO: Find higher resolution cover
                     // $html .=  '<img src="' . $event['photos']['data'][0]['images'][0]['source'] . '">';
-					$html .= "<table>";
-						$html .= '<tr>';
-							$html .= '<td style="width:50%;background-color:black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h3>';
-								$html .=  '<img id="main" src="' . $main['cover']['source'] . '" >';					
-							$html .= "</td>";				
-							$html .= '<td style="width:50%;background-color:black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $secondary['name'] . '</b></h3>';
-								$html .=  '<img id="main" src="' . $secondary['cover']['source'] . '" >';			
-							$html .= "</td>";		
-						$html .= "</tr>";
-						$html .= '<tr>';
-							$html .= '<td id="two_e" style="width:50%;background-color:black">';
-								$html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
-							$html .= "</td>";
-							
-							$html .= '<td id="two_e" style="width:50%;background-color:black">';
-								$html .=    '<h5 class="light grey-text text-lighten-3">' . $secondary['description'] . '</h5>';
-							$html .= "</td>";		
-						$html .= "</tr>";
-						$html .= "<tr>";
-								$html .= '<td id="two_e" style="background-color:black;width:300px">';
-									$html .= "<div>";
-									//$html .=  '<h5 class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
-									$html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
-									$html .= "</div>";
-							    $html .= "</td>";
-								$html .= '<td id="two_e" style="background-color:black;width:300px">';
-									$html .= "<div>";
-									//$html .=  '<h5 class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
-									$html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $secondary['id'] . '%2F&choe=UTF-8" >';
-									$html .= "</div>";
-							    $html .= "</td>";
-						$html .= "</tr>";		
+                    $html .= "<table>";
+                    $html .= "<tr>";
+
+                    $html .= '<td  colspan="2" class="event_info_column_big">';
+                    $html .=  '<h2 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h2>';
+                    $html .=  '<h5 class="light grey-text text-lighten-3"><b>' . date('d-m-Y H:i', strtotime($main['start_time'])) . '</b></h5>';
+                    $html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
+                    $html .= "</td>";
+
+                    $html .= '<td class="next_event_column no-top-border">';
+                    $html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $secondary['name'] . '</b></h4>';
+                    $html .=  '<img id="secondary" src="' . $secondary['cover']['source'] . '" >';
+                    $html .= "</td>";
+                    $html .= "</tr>";
+
+                    $html .= '<tr>';
+                    $html .= '<td class="qr_code_column">';
+                    $html .= "<div>";
+                    $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
+                    $html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
+                    $html .= "</div>";
+                    $html .= "</td>";
+
+                    $html .= '<td class="event_info_column">';
+                    $html .=  '<img id="main" src="' . $main['cover']['source'] . '" >';
+                    $html .= "</td>";
+
+                    $html .= '<td class="next_event_column no-top-border">';
+                    $html .= "</td>";
+                    $html .= "</tr>";
                     $html .= "</table>";
-					$html .= "</li>";		
+                    $html .= "</li>";
                     return $html;
                 }
 				function build_one_slide($main){
                     $html = "";
-					$html .= "<li>";
+                    $html .= "<li>";
+                    //tries to get an url and convert it to an image
+                    $content = file_get_contents('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8');
+                    // It breaks with the new update. TODO: Find higher resolution cover
                     // $html .=  '<img src="' . $event['photos']['data'][0]['images'][0]['source'] . '">';
-					$html .= "<table>";
-						$html .= '<tr>';
-							$html .= '<td style="width:50%;background-color:black">';
-								$html .=  '<h3 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h3>';
-								$html .=  '<img id="main_one" src="' . $main['cover']['source'] . '" >';					
-							$html .= "</td>";					
-						$html .= "</tr>";
-						$html .= '<tr>';
-							$html .= '<td id="two_e" style="width:50%;background-color:black">';
-								$html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
-							$html .= "</td>";		
-						$html .= "</tr>";
-						$html .= "<tr>";
-								$html .= '<td id="two_e" style="background-color:black;width:300px">';
-									$html .= "<div>";
-									//$html .=  '<h5 class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
-									$html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
-									$html .= "</div>";
-							    $html .= "</td>";
-						$html .= "</tr>";
+                    $html .= "<table class='push-to-front'>";
+                    $html .= "<tr>";
+
+                    $html .= '<td  colspan="2" class="event_info_column_big">';
+                    $html .=  '<h2 class="light grey-text text-lighten-3"><b>' . $main['name'] . '</b></h2>';
+                    $html .=  '<h5 class="light grey-text text-lighten-3"><b>' . date('d-m-Y H:i', strtotime($main['start_time'])) . '</b></h5>';
+                    $html .=    '<h5 class="light grey-text text-lighten-3">' . $main['description'] . '</h5>';
+                    $html .= "</td>";
+
+                    $html .= "</tr>";
+
+                    $html .= '<tr>';
+                    $html .= '<td class="qr_code_column">';
+                    $html .= "<div>";
+                    $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
+                    $html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
+                    $html .= "</div>";
+                    $html .= "</td>";
+
+                    $html .= '<td class="event_info_column">';
+                    $html .=  '<img id="main" src="' . $main['cover']['source'] . '" >';
+                    $html .= "</td>";
+
+
+                    $html .= "</tr>";
                     $html .= "</table>";
-					$html .= "</li>";		
+                    $html .= "</li>";
                     return $html;
                 }
 				function build_zero_slide(){
@@ -178,7 +185,7 @@
 
 					array_push($eventTrack,$event);
                 } 
-				
+
 //                $eventCount = 1;
 
 				if($eventCount==0){
