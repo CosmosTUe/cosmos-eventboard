@@ -1,0 +1,8 @@
+version: '3'
+services:
+  lamp:
+    image: "greyltc/lamp"
+    ports:
+      - "443:443"
+    volumes:
+      - "../cosmos-eventboard/:/srv/http"
