@@ -8,7 +8,7 @@
 - For Windows: Docker has great documentation on how to get set up on Windows. Follow these instructions: https://docs.docker.com/docker-for-windows/ Ensure you perform the steps in the section about 'Shared drives', as files will need to be shared from your Drive into the Docker container.
  
 #### Setting up the Eventboard
-1. Clone this repository:
+1. Fork this repository:
 `git clone https://github.com/CosmosTUe/cosmos-eventboard.git`
 2. Navigate to the folder you cloned the repository into. Open a Terminal here.
 3. Ensure Docker is running. In your terminal, start the container: `docker-compose up -d`
