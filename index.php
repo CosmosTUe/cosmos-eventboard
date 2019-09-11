@@ -53,7 +53,7 @@
                         $html .= '<tr>';
                             $html .= '<td class="qr_code_column">';
                             $html .= "<div>";
-                            $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
+                            $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" >Check it out on Facebook!</h5>';
                             $html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
                             $html .= "</div>";
                             $html .= "</td>";
@@ -96,7 +96,7 @@
                     $html .= '<tr>';
                     $html .= '<td class="qr_code_column">';
                     $html .= "<div>";
-                    $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
+                    $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" >Check it out on Facebook!</h5>';
                     $html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
                     $html .= "</div>";
                     $html .= "</td>";
@@ -133,7 +133,7 @@
                     $html .= '<tr>';
                     $html .= '<td class="qr_code_column">';
                     $html .= "<div>";
-                    $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" > You can visit the event here!</h5>';
+                    $html .=  '<h5 style="font-size: 23px;" class = "light grey-text text-lighten-3" >Check it out on Facebook!</h5>';
                     $html .=  '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.facebook.com/' . $main['id'] . '%2F&choe=UTF-8" >';
                     $html .= "</div>";
                     $html .= "</td>";
@@ -150,7 +150,7 @@
                 }
 				function build_zero_slide(){
                     $html = "";
-                    $html = "<div style='text-align:center; width:100%; margin-top:35vh'><p style='width:50%; margin:0 auto; font-size:24px;'>It looks like no upcoming events where found... Might as well turn off the monitor so people don't see this ugly message :) </p></div>";	
+                    $html = "<div style='text-align:center; width:100%; margin-top:35vh'><p style='width:50%; margin:0 auto; font-size:24px;'>It looks like no upcoming events were found... Might as well turn off the monitor so people don't see this ugly message :) </p></div>";	
                     return $html;
                 }
 				function get_number_of_events($events) {
